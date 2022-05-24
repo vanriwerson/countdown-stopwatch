@@ -1,0 +1,14 @@
+.counter-display{
+  border-radius: 6px;
+  box-shadow: 1px 3px 3px #22ff00;
+  display: flex;
+  font-size: 6em;
+  justify-content: space-between;
+  margin: 20px auto;
+  padding: 12px 30px;
+  width: 280px;
+}
+
+.counter-display span {
+  margin: 10px;
+}
