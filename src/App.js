@@ -13,6 +13,7 @@ class App extends Component {
     interval: 0,
     running: false,
     isCountdownDone: false,
+    oneMinute: 60,
   }
   
   handleChange = ({ target }) => {
@@ -21,10 +22,8 @@ class App extends Component {
   }
 
   updateCounter = () => {
-    const oneMinute = 60;
-
     const interval = setInterval(() => {
-      const { totalTimeInSeconds } = this.state;
+      const { totalTimeInSeconds, oneMinute } = this.state;
       const minutes = Math.floor(totalTimeInSeconds / oneMinute);
       const seconds = totalTimeInSeconds % oneMinute;
 
@@ -46,8 +45,7 @@ class App extends Component {
   }
 
   startCountdown = () => {
-    const { minutes, seconds } = this.state;
-    const oneMinute = 60;
+    const { minutes, seconds, oneMinute } = this.state;
     const convertMinutes = Number(minutes) * oneMinute;
     const totalTimeInSeconds = convertMinutes + Number(seconds);
 
