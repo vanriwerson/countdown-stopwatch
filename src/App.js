@@ -9,79 +9,85 @@ class App extends Component {
   state = {
     minutes: '0',
     seconds: '0',
+    totalTimeInSeconds: 0,
+    interval: 0,
     running: false,
     isCountdownDone: false,
-    hideInputs: false,
   }
   
   handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
-  setTotalTimeInSeconds = () => {
-    const { minutes, seconds } = this.state;
-    const sexagesimal = 60;
-    const convertMinutes = Number(minutes) * sexagesimal;
-    const totalTimeInSeconds = convertMinutes + Number(seconds);
+  updateCounter = () => {
+    const oneMinute = 60;
 
-    return totalTimeInSeconds;
-  }
+    const interval = setInterval(() => {
+      const { totalTimeInSeconds } = this.state;
+      const minutes = Math.floor(totalTimeInSeconds / oneMinute);
+      const seconds = totalTimeInSeconds % oneMinute;
 
-  runTimer = () => {
-    this.setState(({ running: true, hideInputs: true }), this.startCountdown);
+      if (totalTimeInSeconds === 0) {
+        this.setState({ isCountdownDone: true });
+      } else {
+        this.setState((prevState) => ({
+          minutes,
+          seconds,
+          totalTimeInSeconds: prevState.totalTimeInSeconds - 1,
+        }));
+      }
+    }, 1000);
+
+    this.setState((prevState) => ({
+      ...prevState,
+      interval,
+    }));
   }
 
   startCountdown = () => {
-    const { running } = this.state;
-    let totalTimeInSeconds = this.setTotalTimeInSeconds();
+    const { minutes, seconds } = this.state;
+    const oneMinute = 60;
+    const convertMinutes = Number(minutes) * oneMinute;
+    const totalTimeInSeconds = convertMinutes + Number(seconds);
 
-    if (running) {
-      setInterval(() => {
-        const displayMinutes = Math.floor(totalTimeInSeconds / 60);
-        const displaySeconds = totalTimeInSeconds % 60;
-        
-        if(totalTimeInSeconds === 0) {
-          this.setState({ running: false, isCountdownDone: true });
-        } else {
-          this.setState({
-            minutes: displayMinutes.toString(),
-            seconds: displaySeconds.toString(),
-          });
-          totalTimeInSeconds -= 1;
-        }
-      }, 1000);
-    }
+    this.setState(({ totalTimeInSeconds, running: true }), this.updateCounter);
   }
 
-  resetState = () => {
-    window.location.reload();
+  resetCounter = () => {
+    const { interval } = this.state;
+    clearInterval(interval);
+
+    this.setState({
+      minutes: '0',
+      seconds: '0',
+      totalTimeInSeconds: 0,
+      running: false,
+      isCountdownDone: false,
+    })
   }
 
   render() {
-    const { minutes, seconds, running, isCountdownDone, hideInputs } = this.state;
+    const { minutes, seconds, running, isCountdownDone } = this.state;
     return (
       <div className="counter-container">
-        {(running && isCountdownDone === false) && (
+        {(running && !isCountdownDone) && (
           <Counter
             minutes={ minutes.toString().padStart(2, '0') }
             seconds={ seconds.toString().padStart(2, '0') }
           />
         )}
         {isCountdownDone && <CountdownDone />}
-        {hideInputs === false && (
-          <div>
-            <h1>Set your break time:</h1>
-            <Inputs
-              minutes={ minutes }
-              seconds={ seconds }
-              onInputChange={ this.handleChange }
-            />
-          </div>
+        {(!running && !isCountdownDone) && (
+          <Inputs
+            minutes={ minutes }
+            seconds={ seconds }
+            onInputChange={ this.handleChange }
+          />
         )}
         <Controls
-          startCountdown={ this.runTimer }
-          resetCounter={ this.resetState }
+          startCountdown={ this.startCountdown }
+          resetCounter={ this.resetCounter }
         />
       </div>
     );
