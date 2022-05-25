@@ -9,6 +9,7 @@ class App extends Component {
   state = {
     minutes: '0',
     seconds: '0',
+    totalTimeInSeconds: 0,
     running: false,
     isCountdownDone: false,
     hideInputs: false,
@@ -16,7 +17,7 @@ class App extends Component {
   
   handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
   setTotalTimeInSeconds = () => {
@@ -34,42 +35,25 @@ class App extends Component {
 
   startCountdown = () => {
     const { running } = this.state;
-    let totalTimeInSeconds = this.setTotalTimeInSeconds();
-
-    if (running) {
-      setInterval(() => {
-        const displayMinutes = Math.floor(totalTimeInSeconds / 60);
-        const displaySeconds = totalTimeInSeconds % 60;
-        
-        if(totalTimeInSeconds === 0) {
-          this.setState({ running: false, isCountdownDone: true });
-        } else {
-          this.setState({
-            minutes: displayMinutes.toString(),
-            seconds: displaySeconds.toString(),
-          });
-          totalTimeInSeconds -= 1;
-        }
-      }, 1000);
-    }
+    console.log(running);
   }
 
-  resetState = () => {
+  resetCountdown = () => {
     window.location.reload();
   }
 
   render() {
-    const { minutes, seconds, running, isCountdownDone, hideInputs } = this.state;
+    const { minutes, seconds, running, isCountdownDone } = this.state;
     return (
       <div className="counter-container">
-        {(running && isCountdownDone === false) && (
+        {(running && !isCountdownDone) && (
           <Counter
             minutes={ minutes.toString().padStart(2, '0') }
             seconds={ seconds.toString().padStart(2, '0') }
           />
         )}
         {isCountdownDone && <CountdownDone />}
-        {hideInputs === false && (
+        {(!running && !isCountdownDone) && (
           <div>
             <h1>Set your break time:</h1>
             <Inputs
@@ -80,8 +64,8 @@ class App extends Component {
           </div>
         )}
         <Controls
-          startCountdown={ this.runTimer }
-          resetCounter={ this.resetState }
+          startCountdown={ this.startCountdown }
+          resetCounter={ this.resetCountdown }
         />
       </div>
     );
