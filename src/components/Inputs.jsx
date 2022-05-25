@@ -7,6 +7,8 @@ class Inputs extends Component {
     const { minutes, seconds, onInputChange } = this.props;
     return (
       <div className='inputs-container'>
+        <h1>Set your break time:</h1>
+
         <label className='label' htmlFor='minutes'>
           Min:{' '}
         <input
