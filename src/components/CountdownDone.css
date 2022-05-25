@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.countdown-done-container h1 {
+  font-size: 3em;
+}
+
 .meme {
   border: none;
   outline: none;
