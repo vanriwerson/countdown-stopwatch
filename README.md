@@ -1,5 +1,5 @@
 # Cronômetro Regressivo
->Bem-vindo ao repositório do projeto Countdown Stopwatch! O objetivo deste projeto é criar uma aplicação para contagem regressiva, a fim de controlar as pausas no método de estudo Pomodoro.
+>Boas-vindas ao repositório do projeto Countdown Stopwatch! O objetivo deste projeto é criar uma aplicação para contagem regressiva, a fim de controlar as pausas no método de estudo Pomodoro.
 
 ### Tecnologias Utilizadas
 - [HTML:](https://developer.mozilla.org/pt-BR/docs/Web/HTML) Linguagem de marcação utilizada para estruturar e apresentar o conteúdo na web.
