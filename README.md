@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Cronômetro Regressivo
+>Bem-vindo ao repositório do projeto Countdown Stopwatch! O objetivo deste projeto é criar uma aplicação para contagem regressiva, a fim de controlar as pausas no método de estudo Pomodoro.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Tecnologias Utilizadas
+- [HTML:](https://developer.mozilla.org/pt-BR/docs/Web/HTML) Linguagem de marcação utilizada para estruturar e apresentar o conteúdo na web.
+- [CSS:](https://developer.mozilla.org/pt-BR/docs/Web/CSS) Linguagem de estilo utilizada para definir a aparência e o layout dos elementos na web.
+- [JavaScript:](https://developer.mozilla.org/pt-BR/docs/Web/Javascript) Linguagem de programação utilizada para adicionar interatividade e lógica à aplicação.
+- [React:](https://react.dev/reference/react) Biblioteca JavaScript de código aberto para criar interfaces de usuário.
 
-## Available Scripts
+### Rodando a aplicação:
+1. Clone este repositório: 
+~~~
+git clone git@github.com:vanriwerson/countdown-stopwatch.git
+~~~
 
-In the project directory, you can run:
+2. Navegue até o diretório do projeto: 
+~~~
+cd countdown-stopwatch
+~~~
 
-### `npm start`
+3. Instale as dependências do projeto: 
+~~~
+npm install
+~~~
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. Inicie a aplicação:
+~~~
+npm start
+~~~
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Assim, a aplicação estará disponivel em seu navegador através do endereço `http://localhost:3000`.
+- Também é possível acessá-la por esse [link](https://vanr-countdown-stopwatch.netlify.app/), dispensando a necessidade de clonar esse repositório.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Sobre o Dev
+[Bruno Riwerson Silva](https://www.linkedin.com/in/bruno-riwerson/), é um profissional apaixonado por tecnologia.
+Desenvolvedor full-stack proficiente no uso de React com MaterialUI no front-end e NodeJS com Express no back-end, possui experiência no uso de bancos de dados relacionais e não-relacionais, além de conhecer outras tecnologias como Golang, Java, Docker entre outras, tornando-o dinâmico e apto a solucionar quaisquer problemas de modo eficiente.
